@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Routes } from "@config/routes";
+import { useState } from "react";
 
 const Header = styled.header`
   width: 100%;
@@ -49,6 +50,12 @@ const AtoDash = styled.a`
 `;
 
 const IssuesPage = () => {
+  const [modal, setModal] = useState(false);
+
+  const setModalTrue = () => {
+    setModal(true)
+  }
+
   return (
     <div>
       <Header>
@@ -62,16 +69,16 @@ const IssuesPage = () => {
         </Div>
         <AtoDash href={Routes.projects}>Open Dashboard</AtoDash>
       </Header>
+      {modal ? 
+      <div>
+        {/* add modal here*/}
+      </div> : 
       <ContactButton
-        onClick={() =>
-          alert(
-            "Implement this in Challenge 2 - Modal:\n\nhttps://profy.dev/rjs-challenge-modal"
-          )
-        }
+        onClick={setModalTrue}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/message.svg" alt="Contact" />
-      </ContactButton>
+      </ContactButton>}
     </div>
   );
 };

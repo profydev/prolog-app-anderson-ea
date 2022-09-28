@@ -69,16 +69,14 @@ const IssuesPage = () => {
         </Div>
         <AtoDash href={Routes.projects}>Open Dashboard</AtoDash>
       </Header>
-      {modal ? 
-      <div>
+      {modal && 
+      <div style={{position: 'absolute', zIndex: 10, top: 0, width: '100%', height: '100%', background:'rgba(52, 64, 84, 0.6', backdropFilter: 'blur' }}>
         {/* add modal here*/}
-      </div> : 
-      <ContactButton
-        onClick={setModalTrue}
-      >
+      </div>} 
+      <ContactButton onClick={setModalTrue}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/message.svg" alt="Contact" />
-      </ContactButton>}
+      </ContactButton>
     </div>
   );
 };

@@ -49,6 +49,25 @@ const AtoDash = styled.a`
   border-radius: 8px;
 `;
 
+const CenterDiv = styled.div`
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
+  width: 100%;
+`;
+
+const ModalDiv =  styled.div`
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  background: white; 
+  border-radius: 12px; 
+  width: 400px; 
+  height: 288px;
+`;
+
 const IssuesPage = () => {
   const [modal, setModal] = useState(false);
 
@@ -71,7 +90,17 @@ const IssuesPage = () => {
       </Header>
       {modal && 
       <div style={{position: 'absolute', zIndex: 10, top: 0, width: '100%', height: '100%', background:'rgba(52, 64, 84, 0.6', backdropFilter: 'blur' }}>
-        {/* add modal here*/}
+        <CenterDiv>
+          <ModalDiv>
+            <p style={{fontSize:40, margin:0, paddingTop:32}}>✉️</p>
+            <h1 style={{marginBottom: 0, fontSize:18}}>Contact Us Via Email</h1>
+            <p style={{margin: 0, fontSize:14, textAlign:'center', padding:24}}>Any Questions? Send us an email at prolog@profy.dev. We usually answer within 24 hours.</p>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+              <button style={{height: 44, width: 170, borderRadius: 8, background: 'white', fontSize: 16}}>Cancel</button>
+              <button style={{border: 'none', height: 44, width: 170, borderRadius: 8, background: '#7F56D9', fontSize: 16, color: 'white'}}>Open Email App</button>
+            </div>
+          </ModalDiv>
+        </CenterDiv>
       </div>} 
       <ContactButton onClick={setModalTrue}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
